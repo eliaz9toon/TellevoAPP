@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Tarjeta para el perfil del conductor -->
+  <ion-card>
+    <!-- Encabezado con la imagen de fondo y foto de perfil -->
+    <div class="profile-header">
+      <img src="assets/icon/Elias.png" class="background-image" alt="Imagen de fondo">
+      <div class="profile-image-container">
+        <img src="assets/icon/Elias.png" class="profile-image" alt="Foto de perfil">
+      </div>
+    </div>
+
+    <!-- Información del Conductor -->
+    <ion-card-content>
+      <div class="profile-info">
+        <h2>Elias Alcaide</h2>
+        <p><ion-icon name="globe-outline"></ion-icon> Habla español</p>
+        <p><ion-icon name="location-outline"></ion-icon> 90 Viajes Realizados</p>
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+          <span>4.94 ★</span>
+        </div>
+        <div class="years">
+          <span>2 Años</span>
+        </div>
+      </div>
+    </ion-card-content>
+
+    <!-- Reconocimientos -->
+    <ion-card-content>
+      <div class="achievements">
+        <h3>Reconocimientos</h3>
+        <div class="achievement-icons">
+          <div class="achievement-item">
+            <ion-icon name="medal-outline"></ion-icon>
+            <span>Excelente Servicio</span>
+          </div>
+          <div class="achievement-item">
+            <ion-icon name="shield-checkmark-outline"></ion-icon>
+            <span>Héroe</span>
+          </div>
+          <div class="achievement-item">
+            <ion-icon name="happy-outline"></ion-icon>
+            <span>Amable</span>
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

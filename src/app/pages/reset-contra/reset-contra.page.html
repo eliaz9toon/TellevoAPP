@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Resetear Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- Imagen en la parte superior, fuera de la tarjeta -->
+  <ion-img src="assets/icon/logo.png" alt="Logo del sistema" class="logo"></ion-img>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Cambiar Contraseña</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content [formGroup]="changePasswordForm">
+      <!-- Campo para ingresar el correo -->
+      <ion-item>
+        <ion-input formControlName="email" type="email" label="Correo" labelPlacement="floating" placeholder="Correo del usuario"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="changePasswordForm.get('email')?.hasError('required')">El correo es requerido</ion-text>
+      <ion-text color="danger" *ngIf="changePasswordForm.get('email')?.hasError('email')">Debe ingresar un correo válido</ion-text>
+
+      <!-- Campo para ingresar la nueva contraseña -->
+      <ion-item>
+        <ion-input formControlName="password" type="password" label="Nueva Contraseña" labelPlacement="floating" placeholder="Escriba aquí"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="changePasswordForm.get('password')?.hasError('required')">La contraseña es requerida</ion-text>
+      <ion-text color="danger" *ngIf="changePasswordForm.get('password')?.hasError('minlength')">La contraseña debe tener al menos 6 caracteres</ion-text>
+
+      <!-- Campo para confirmar la contraseña -->
+      <ion-item>
+        <ion-input formControlName="confirmPassword" type="password" label="Confirmar Contraseña" labelPlacement="floating" placeholder="Escriba aquí"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="changePasswordForm.hasError('mismatch')">Las contraseñas no coinciden</ion-text>
+
+      <!-- Botón para cambiar la contraseña -->
+      <ion-button expand="full" (click)="changePassword()">Cambiar Contraseña</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

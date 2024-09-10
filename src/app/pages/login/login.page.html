@@ -1,0 +1,28 @@
+<ion-content>
+  <!-- Imagen en la parte superior, fuera de la tarjeta -->
+  <ion-img src="assets/icon/logo.png" alt="Logo del sistema" class="logo"></ion-img>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido al sistema</ion-card-title>
+      <ion-card-subtitle>Ingrese credenciales</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content [formGroup]="loginForm">
+      <ion-item>
+        <ion-input formControlName="email" [(ngModel)]="emailValue" type="email" label="Ingrese correo" labelPlacement="floating" placeholder="escriba aquí"></ion-input>
+      </ion-item>
+      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('email')?.hasError('required')">El email es requerido</ion-text>
+      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('email')?.hasError('email')">El email es inválido</ion-text>
+      <ion-item>
+        <ion-input formControlName="password" [(ngModel)]="passValue" type="password" label="Ingrese contraseña" labelPlacement="floating" placeholder="escriba aquí"></ion-input>
+      </ion-item>
+      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('password')?.hasError('required')">La contraseña es requerida</ion-text>
+      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('password')?.hasError('minlength')">La contraseña debe tener 6 caracteres como mínimo</ion-text>
+      <ion-button (click)="login()" expand="full">Ingresar</ion-button>
+      <ion-button routerLink="/register" expand="full">Registrarse</ion-button><ion-button routerLink="/invitado-dashboard" expand="full">Iniciar como invitado</ion-button>
+      <a routerLink="/reset-contra">Olvide mi contraseña</a>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

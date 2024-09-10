@@ -1,0 +1,78 @@
+ion-header {
+    --background: #3880ff;
+    --color: #fff;
+  }
+  
+  ion-toolbar {
+    --padding-start: 16px;
+    --padding-end: 16px;
+  }
+  
+  ion-title {
+    font-size: 1.5rem;
+  }
+  
+  ion-content {
+    --background: #f4f5f8;
+  }
+  
+  ion-list {
+    margin: 16px;
+  }
+  
+  ion-item {
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    position: relative;
+    opacity: 0;  // Inicialmente oculto
+    transform: translateY(20px);  // Inicialmente desplazado
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;  // Animación
+  }
+  
+  ion-item.fade-in-up {
+    opacity: 1;  // Visible
+    transform: translateY(0);  // Desplazado a su posición original
+  }
+  
+  ion-label {
+    padding: 16px;
+  }
+  
+  ion-input {
+    margin-bottom: 8px;
+  }
+  
+  ion-button {
+    margin-top: 8px;
+  }
+  
+  ion-button.confirm-button {
+    --background: #28a745;
+    --color: #fff;
+  }
+  
+  ion-button.reject-button {
+    --background: #dc3545;
+    --color: #fff;
+  }
+  
+  ion-button[expand="full"] {
+    --background: #3880ff;
+    --color: #fff;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  p {
+    margin: 4px 0;
+    color: #666;
+  }
+  
+  .confirmed {
+    background-color: #d4edda;
+  }

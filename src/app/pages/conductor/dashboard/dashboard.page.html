@@ -1,0 +1,87 @@
+<ion-content padding>
+  <!-- Imagen en la parte superior, fuera de la tarjeta -->
+  <ion-img src="assets/icon/logo.png" alt="Logo del sistema" class="logo"></ion-img>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Formulario de Conductor</ion-card-title>
+      <ion-card-subtitle>Completa la información del viaje</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Selección del punto A -->
+      <ion-item>
+        <ion-input [(ngModel)]="selectedPointA" 
+                   (ngModelChange)="checkFormValidity()" 
+                   label="Punto A" 
+                   labelPlacement="floating" 
+                   placeholder="escriba aquí">
+        </ion-input>
+      </ion-item>
+
+      <!-- Selección del punto B -->
+      <ion-item>
+        <ion-input [(ngModel)]="selectedPointB" 
+                   (ngModelChange)="checkFormValidity()" 
+                   label="Punto B" 
+                   labelPlacement="floating" 
+                   placeholder="escriba aquí">
+        </ion-input>
+      </ion-item>
+
+      <!-- Selección de la tarifa -->
+      <ion-item>
+        <ion-input type="number" 
+                   [(ngModel)]="fare" 
+                   (ngModelChange)="checkFormValidity()" 
+                   label="Tarifa" 
+                   labelPlacement="floating" 
+                   placeholder="Ingrese la tarifa" 
+                   [class.custom-input]="true">
+        </ion-input>
+      </ion-item>
+
+      <!-- Número de personas -->
+      <ion-item>
+        <ion-input type="number" 
+                   [(ngModel)]="numberOfPeople" 
+                   (ngModelChange)="checkFormValidity()" 
+                   label="Número de Personas" 
+                   labelPlacement="floating" 
+                   placeholder="Ingrese número de personas" 
+                   [class.custom-input]="true">
+        </ion-input>
+      </ion-item>
+
+      <!-- Mostrar imagen del recorrido -->
+      <ion-card *ngIf="showRouteImage">
+        <ion-card-header>
+          <ion-card-title>Recorrido del Viaje</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-img [src]="routeImage"></ion-img>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Mensaje si la información está completa -->
+      <ion-text color="success" *ngIf="formComplete" class="form-note">
+        Formulario Completo. Listo para escanear QR.
+      </ion-text>
+
+      <!-- Botón para mostrar la cámara QR -->
+      <ion-button expand="full" 
+                  (click)="showQRCodeScanner()" 
+                  [disabled]="!formComplete" 
+                  class="qr-button">
+        <ion-icon slot="start" name="camera"></ion-icon>
+        Leer QR de Pasajeros
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+
+
+
+

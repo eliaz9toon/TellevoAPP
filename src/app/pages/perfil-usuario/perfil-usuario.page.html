@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Tarjeta para el perfil del usuario -->
+  <ion-card>
+    <!-- Encabezado con la imagen de fondo y foto de perfil -->
+    <div class="user-profile-header">
+      <img src="assets/icon/Elias2.png" class="background-image" alt="Imagen de fondo">
+      <div class="user-profile-image-container">
+        <img src="assets/icon/Elias2.png" class="user-profile-image" alt="Foto de perfil">
+      </div>
+    </div>
+
+    <!-- Información del Usuario -->
+    <ion-card-content>
+      <div class="user-profile-info">
+        <h2>Alcaide Elias</h2>
+        <p><ion-icon name="globe-outline"></ion-icon> Habla Aleman Perfecto</p>
+        <p><ion-icon name="location-outline"></ion-icon> Berlin</p>
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+          <span>5.01 ★</span>
+        </div>
+        <div class="trips">
+          <ion-icon name="car-outline"></ion-icon>
+          <span>Usuario Habitual</span>
+        </div>
+      </div>
+    </ion-card-content>
+
+    <!-- Reconocimientos -->
+    <ion-card-content>
+      <div class="user-achievements">
+        <h3>Reconocimientos</h3>
+        <div class="achievement-icons">
+          <div class="achievement-item">
+            <ion-icon name="thumbs-up-outline"></ion-icon>
+            <span>Puntual</span>
+          </div>
+          <div class="achievement-item">
+            <ion-icon name="happy-outline"></ion-icon>
+            <span>Miniso King</span>
+          </div>
+          <div class="achievement-item">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+            <span>Buen Conversador</span>
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Confirmar Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let conductor of conductores; let i = index" 
+              [ngClass]="{'confirmed': conductor.confirmed, 'fade-in-up': true}">
+      <ion-label>
+        <div *ngIf="!conductor.editing">
+          <h2>{{ conductor.fullName }}</h2>
+          <p>Teléfono: {{ conductor.phone }}</p>
+          <p>Licencia: {{ conductor.licenseNumber }}</p>
+          <p>Matrícula: {{ conductor.plateNumber }}</p>
+          <p>Vehículo: {{ conductor.vehicleBrand }} - {{ conductor.vehicleModel }}</p>
+        </div>
+        <div *ngIf="conductor.editing">
+          <ion-input [(ngModel)]="conductor.fullName" placeholder="Nombre"></ion-input>
+          <ion-input [(ngModel)]="conductor.phone" placeholder="Teléfono"></ion-input>
+          <ion-input [(ngModel)]="conductor.licenseNumber" placeholder="Licencia"></ion-input>
+          <ion-input [(ngModel)]="conductor.plateNumber" placeholder="Matrícula"></ion-input>
+          <ion-input [(ngModel)]="conductor.vehicleBrand" placeholder="Marca"></ion-input>
+          <ion-input [(ngModel)]="conductor.vehicleModel" placeholder="Modelo"></ion-input>
+        </div>
+      </ion-label>
+      <ion-button slot="end" (click)="editarConductor(i)">
+        {{ conductor.editing ? 'Guardar' : 'Editar' }}
+      </ion-button>
+      <ion-button slot="end" *ngIf="!conductor.editing && !conductor.confirmed" (click)="showAlert(conductor, i)" class="confirm-button">
+        Confirmar
+      </ion-button>
+      <ion-button slot="end" *ngIf="!conductor.editing && !conductor.confirmed" (click)="showRejectAlert(conductor, i)" class="reject-button">
+        Rechazar
+      </ion-button>
+      <ion-icon *ngIf="conductor.confirmed" name="checkmark-circle" color="success" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

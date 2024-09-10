@@ -1,0 +1,50 @@
+ion-content {
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
+
+.trip-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.expanded-image {
+  width: 100%;  /* Imagen toma todo el ancho disponible */
+  max-width: 350px;  /* Limitar el tamaño máximo */
+  height: 250px;  /* Aumentar la altura */
+  border-radius: 20px;  /* Bordes más redondeados */
+  object-fit: cover;
+  margin-bottom: 15px;  /* Espacio debajo de la imagen */
+}
+
+.centered-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.trip-info {
+  text-align: center;  /* Centrar el texto de la información */
+}
+
+.trip-cost span, .trip-passengers span {
+  font-weight: bold;
+  color: #3880ff;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.qr-image {
+  width: 150px;
+  height: 150px;
+}
+
+
+  
+  

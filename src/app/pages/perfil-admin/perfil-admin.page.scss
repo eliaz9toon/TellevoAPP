@@ -1,0 +1,49 @@
+.perfil-container {
+    padding: 16px;
+    background-color: #f4f4f4;
+  }
+  
+  .perfil-header {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+  }
+  
+  .perfil-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 16px;
+  }
+  
+  .perfil-info {
+    flex: 1;
+  }
+  
+  .perfil-info h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .perfil-info p {
+    margin: 4px 0;
+    color: #666;
+  }
+  
+  ion-card {
+    margin: 0 auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-card-header {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
