@@ -1,16 +1,17 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button> <!-- Icono para abrir el menú lateral -->
     </ion-buttons>
     <ion-title>Confirmar Formulario</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-list>
     <ion-item *ngFor="let conductor of conductores; let i = index" 
-              [ngClass]="{'confirmed': conductor.confirmed, 'fade-in-up': true}">
+              [ngClass]="{'confirmed': conductor.confirmed, 'fade-in-up': true}"
+              class="conductor-item">
       <ion-label>
         <div *ngIf="!conductor.editing">
           <h2>{{ conductor.fullName }}</h2>
@@ -28,16 +29,18 @@
           <ion-input [(ngModel)]="conductor.vehicleModel" placeholder="Modelo"></ion-input>
         </div>
       </ion-label>
-      <ion-button slot="end" (click)="editarConductor(i)">
-        {{ conductor.editing ? 'Guardar' : 'Editar' }}
-      </ion-button>
-      <ion-button slot="end" *ngIf="!conductor.editing && !conductor.confirmed" (click)="showAlert(conductor, i)" class="confirm-button">
-        Confirmar
-      </ion-button>
-      <ion-button slot="end" *ngIf="!conductor.editing && !conductor.confirmed" (click)="showRejectAlert(conductor, i)" class="reject-button">
-        Rechazar
-      </ion-button>
-      <ion-icon *ngIf="conductor.confirmed" name="checkmark-circle" color="success" slot="end"></ion-icon>
+      <div class="button-group">
+        <ion-button (click)="editarConductor(i)">
+          {{ conductor.editing ? 'Guardar' : 'Editar' }}
+        </ion-button>
+        <ion-button *ngIf="!conductor.editing && !conductor.confirmed" (click)="showAlert(conductor, i)" class="confirm-button">
+          Confirmar
+        </ion-button>
+        <ion-button *ngIf="!conductor.editing && !conductor.confirmed" (click)="showRejectAlert(conductor, i)" class="reject-button">
+          Rechazar
+        </ion-button>
+        <ion-icon *ngIf="conductor.confirmed" name="checkmark-circle" color="success"></ion-icon>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>

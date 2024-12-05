@@ -1,20 +1,83 @@
 ion-header {
-    --background: #007bff;
-  }
-  
+  --background: #007bff;
+}
+
+ion-title {
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 576px) {
   ion-title {
-    color: white;
+    font-size: 1rem;
   }
-  
-  ion-item {
-    margin-bottom: 15px;
-  }
-  
-  ion-input {
-    --padding-start: 12px;
-  }
-  
-  ion-button {
-    margin-top: 20px;
-  }
-  
+}
+
+.form-group {
+  margin-bottom: 20px; /* Espacio entre cada grupo de campo y error */
+}
+
+ion-item {
+  margin-bottom: 10px;
+}
+
+ion-label {
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s ease-out;
+  margin-top: -15px; /* Ajuste para subir el título un poco más */
+}
+
+ion-input {
+  --padding-start: 12px;
+}
+
+ion-text {
+  margin-top: 5px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+ion-text.show-error {
+  opacity: 1;
+  transform: translateY(0);
+  color: red;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:disabled {
+  background-color: #b0d0ff;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+ion-input:focus + ion-label {
+  transform: translateY(-20px);
+  font-size: 0.9rem;
+  color: #007bff;
+}

@@ -60,4 +60,21 @@ export class UsuariosService {
       user.pass = newPassword;
     }
   }
+
+  // Nuevos métodos para obtener la información del usuario logueado
+  getLoggedUser(email: string): Usuario | undefined {
+    return this.getUsuarioByEmail(email);
+  }
+
+  getUserProfile(email: string): any {
+    const usuario = this.getUsuarioByEmail(email);
+    if (usuario) {
+      return {
+        email: usuario.email,
+        nombre: "Un nombre completo", // Agrega el nombre completo si lo tienes
+        tipo: usuario.tipo
+      };
+    }
+    return null;
+  }
 }

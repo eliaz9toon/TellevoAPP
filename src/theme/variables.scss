@@ -1,2 +1,15 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+/* src/theme/variables.scss */
+
+/* Colores claros para el tema blanco */
+:root {
+    --ion-background-color: #ffffff; /* Fondo blanco */
+    --ion-text-color: #000000; /* Texto negro */
+    --ion-item-background: #ffffff; /* Fondo blanco para los ítems */
+    --ion-toolbar-background: #ffffff; /* Fondo blanco para el toolbar */
+    --ion-toolbar-color: #000000; /* Color del texto del toolbar */
+    --ion-button-background: #3880ff; /* Color de fondo para los botones */
+    --ion-button-color: white; /* Color de texto de los botones */
+    --ion-card-background: #ffffff; /* Fondo blanco para las tarjetas */
+    --ion-card-border-radius: 10px; /* Bordes redondeados para las tarjetas */
+  }
+  

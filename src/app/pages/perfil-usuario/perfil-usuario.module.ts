@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
 
-import { PerfilUsuarioPageRoutingModule } from './perfil-usuario-routing.module';
-
+import { PerfilUsuarioPageRoutingModule } from './perfil-usuario-routing.module'; // Asegúrate de importarlo
 import { PerfilUsuarioPage } from './perfil-usuario.page';
 
 @NgModule({
@@ -13,8 +11,9 @@ import { PerfilUsuarioPage } from './perfil-usuario.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilUsuarioPageRoutingModule
+    PerfilUsuarioPageRoutingModule // Asegúrate de que esté aquí
   ],
-  declarations: [PerfilUsuarioPage]
+  declarations: [PerfilUsuarioPage],
+  exports: [PerfilUsuarioPage]
 })
 export class PerfilUsuarioPageModule {}

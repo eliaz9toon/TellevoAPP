@@ -1,39 +1,41 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Viaje } from '../interfaces/viaje';
+import { Observable } from 'rxjs';
+import firebase from 'firebase/compat/app'; // Asegúrate de importar firebase
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ViajesService {
+  constructor(private firestore: AngularFirestore) {}
 
-  viajes: Viaje[] = [
-    { inicio:'Sede Puente Alto', fin:' Mall Plaza Vespucio', costo:'1890', pasajeros:4 ,imagen:'assets/icon/Duoc.gif' },
-    { inicio:'Sede Puente Alto', fin:'Cerro San Cristóbal', costo:'2600', pasajeros:3 ,imagen:'assets/icon/Duoc2-3.gif' },
-    { inicio:'Sede Puente Alto', fin:'Barrio Lastarria', costo:'3600', pasajeros:3 ,imagen:'assets/icon/Duoc5.gif' },
-  ]
-
-  constructor() { }
-
-  getViajes(): Viaje[] {
-    return this.viajes;
+  // Obtener todos los viajes desde Firebase
+  getViajes(): Observable<Viaje[]> {
+    return this.firestore.collection<Viaje>('viajes').valueChanges({ idField: 'id' });
   }
 
-  getViajeByNombre() {
-
+  // Agregar un viaje nuevo a Firebase
+  addViaje(viaje: Viaje) {
+    return this.firestore.collection('viajes').add(viaje);
   }
 
-  addViaje() {
-
-  }
-
-  deleteViaje() {
-
-  }
-
+  // Actualizar un viaje en Firebase
   updateViaje(viaje: Viaje) {
-    const index = this.viajes.findIndex(v => v.inicio === viaje.inicio && v.fin === viaje.fin);
-    if (index > -1) {
-      this.viajes[index] = viaje;
-    }
+    const viajeRef = this.firestore.collection('viajes').doc(viaje.id);
+    return viajeRef.update(viaje);
+  }
+
+  // Eliminar un viaje de Firebase
+  deleteViaje(id: string) {
+    return this.firestore.collection('viajes').doc(id).delete();
+  }
+
+  // Reservar un asiento
+  reserveSeat(viajeId: string) {
+    const viajeRef = this.firestore.collection('viajes').doc(viajeId);
+    return viajeRef.update({
+      availableSeats: firebase.firestore.FieldValue.increment(-1), // Usa firebase.firestore.FieldValue
+    });
   }
 }

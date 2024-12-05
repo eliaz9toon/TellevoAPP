@@ -1,26 +1,31 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button> <!-- Icono para abrir el menú lateral -->
     </ion-buttons>
-    <ion-title>Reporte de Quejas</ion-title>
+    <ion-title>
+      Reporte de quejas
+    </ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <ion-list>
     <ion-item>
       <ion-input labelPlacement="floating" [(ngModel)]="matricula"
-       type="text" placeholder="Escriba aquí" label="Ingrese correo"></ion-input>
+        type="text" placeholder="Escriba aquí" label="Ingrese correo"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-input labelPlacement="floating" [(ngModel)]="queja"
-       type="text" placeholder="Escriba aquí" label="Descripción de la Queja"></ion-input>
+        type="text" placeholder="Escriba aquí" label="Descripción de la Queja"></ion-input>
     </ion-item>
   </ion-list>
 
-
-  <ion-button expand="full" color="primary" (click)="enviarQueja()">
-    Enviar Queja
-  </ion-button>
+  <!-- Contenedor para el botón centrado -->
+  <div class="button-container">
+    <button class="custom-button" (click)="enviarQueja()">
+      Enviar Queja
+    </button>
+  </div>
 </ion-content>

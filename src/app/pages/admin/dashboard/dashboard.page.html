@@ -1,77 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-title>Lista de Usuarios</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Gestión de Usuarios -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Gestión de Usuarios</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Total de Usuarios: {{ totalUsuarios }}</p>
-      <ion-accordion-group expand="inset">
-        <ion-accordion *ngFor="let usuario of usuarios">
-          <ion-item slot="header" color="light">
-            <ion-label>Nombre: {{ usuario.email }}</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <ion-label>Nombre: {{ usuario.email }}</ion-label>
-            <ion-item>
-              <ion-label>Tipo:</ion-label>
-              <ion-select [(ngModel)]="usuario.tipo" (ionChange)="cambiarTipoUsuario(usuario)">
-                <ion-select-option value="admin">Admin</ion-select-option>
-                <ion-select-option value="usuario">Usuario</ion-select-option>
-                <ion-select-option value="invitado">Invitado</ion-select-option>
-                <ion-select-option value="conductor">Conductor</ion-select-option>
-              </ion-select>
-            </ion-item>
-            <ion-button color="primary" (click)="verUsuario(usuario)">Ver</ion-button>
-            <ion-button color="danger" (click)="confirmarEliminacionUsuario(usuario)">Eliminar</ion-button>
-
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
-      
-    </ion-card-content>
-  </ion-card>
-
-
-  <!-- Gestión de Conductores -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Gestión de Conductores</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Total de Conductores: {{ totalConductores }}</p>
-      <ion-accordion-group expand="inset">
-        <ion-accordion *ngFor="let conductor of conductores">
-          <ion-item slot="header" color="light">
-            <ion-label>Nombre: {{ conductor.email }}</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <ion-label>Nombre: {{ conductor.email }}</ion-label>
-            <ion-item>
-              <ion-label>Tipo:</ion-label>
-              <ion-select [(ngModel)]="conductor.tipo" (ionChange)="cambiarTipoUsuario(conductor)">
-                <ion-select-option value="admin">Admin</ion-select-option>
-                <ion-select-option value="usuario">Usuario</ion-select-option>
-                <ion-select-option value="invitado">Invitado</ion-select-option>
-                <ion-select-option value="conductor">Conductor</ion-select-option>
-              </ion-select>
-            </ion-item>
-            <ion-button color="primary" (click)="verConductor(conductor)">Ver</ion-button>
-            <ion-button color="danger" (click)="confirmarEliminacionConductor(conductor)">Eliminar</ion-button>
-
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-content>
-  </ion-card>
+<ion-content [fullscreen]="true">
+  <ion-list *ngFor="let aux of usuarios">
+    <ion-item>
+      <ion-label>
+        <ion-button fill="outline" color="secondary" (click)="editarUser(aux.uid)">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <p>Tipo usuario: {{ aux.tipo }}</p>
+        <h2>{{ aux.email }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
-
-

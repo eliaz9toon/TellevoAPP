@@ -1,22 +1,40 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
+    <!-- Menú Lateral -->
     <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Bienvenido:</ion-list-header>
-          <ion-note>{{ this.emailUsuario }} </ion-note>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Menú</ion-title>
+        </ion-toolbar>
+      </ion-header>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+      <ion-content>
+        <!-- Mostrar el nombre y tipo del usuario -->
+        <ion-list id="inbox-list">
+          <ion-list-header class="welcome-header">
+            Bienvenido, <span class="user-type">{{ tipoUsuario | titlecase }}</span>
+          </ion-list-header>
+        </ion-list>
+
+        <!-- Opciones del menú -->
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item routerDirection="root" [routerLink]="p.url" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon aria-hidden="true" slot="start" [name]="p.icon"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
 
-        
+        <!-- Opción para cerrar sesión -->
+        <ion-item button (click)="cerrarSesion()" lines="none" detail="false" class="logout-button">
+          <ion-icon aria-hidden="true" slot="start" name="log-out-outline"></ion-icon>
+          <ion-label>Cerrar Sesión</ion-label>
+        </ion-item>
       </ion-content>
     </ion-menu>
+
+    <!-- Contenido principal -->
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

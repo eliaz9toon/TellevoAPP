@@ -1,0 +1,65 @@
+ion-title {
+  font-size: 1.5rem; /* Tamaño base del título */
+}
+
+ion-card-title {
+  font-weight: bold;
+  color: #0078d4; /* Color azul para destacar el título */
+}
+
+ion-card {
+  margin: 20px; /* Espaciado exterior */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+ion-item {
+  margin-bottom: 10px; /* Espacio entre ítems */
+}
+
+ion-button {
+  margin-top: 10px; /* Espacio superior para los botones */
+  margin: 15px;
+}
+
+#map {
+  height: 50vh; /* Altura específica para el mapa */
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
+}
+
+/* Ocultar elementos cuando el escáner de código de barras está activo */
+body.barcode-scanner-active {
+  display: none; /* Ocultar todo */
+}
+
+/* Mostrar solo el modal del escáner */
+.barcode-scanner-modal {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ajustes en modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .barcode-scanner-modal {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  ion-title {
+    font-size: 1.2rem; /* Ajuste para pantallas medianas */
+  }
+}
+
+@media (max-width: 480px) {
+  ion-title {
+    font-size: 1rem; /* Ajuste para pantallas pequeñas */
+  }
+}
+

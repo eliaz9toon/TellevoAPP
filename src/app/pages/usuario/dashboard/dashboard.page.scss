@@ -1,50 +1,188 @@
-ion-content {
-  --padding-start: 10px;
-  --padding-end: 10px;
+/* Estilos generales */
+.travel-list-content {
+  --background: #f0f4f8; /* Fondo suave */
+  padding: 10px; /* Espacio alrededor del contenido */
+  display: flex; /* Asegura que el contenido ocupe todo el ancho */
+  flex-direction: column;
+  width: 100%;
 }
 
+/* Estilos del botón "Tomar viaje" */
+.trip-button {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px;
+  font-weight: bold;
+  color: white;
+  border: none; /* Eliminar borde predeterminado */
+  font-size: 16px;
+  background: linear-gradient(45deg, #1e3c72, #2a5298); /* Fondo degradado */
+  transition: all 0.3s ease; /* Transición suave para los efectos */
+  border-radius: 30px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  outline: none; /* Eliminar el borde de enfoque */
+  cursor: pointer; /* Cambiar el cursor a puntero */
+  position: relative; /* Asegurarse de que el botón esté en su propia capa */
+  z-index: 10; /* Asegurarse de que el botón se muestre por encima de otros elementos */
+  overflow: visible; /* Permite que el botón se expanda sin cortarse */
+  margin-bottom: 20px; /* Separación entre el botón y el siguiente elemento (línea) */
+
+  /* Efecto hover */
+  &:hover {
+    transform: scale(1.05); /* Agrandar ligeramente el botón al pasar el ratón */
+    background: linear-gradient(45deg, #2a5298, #1e3c72); /* Invertir el degradado */
+  }
+
+  /* Efecto activo */
+  &:active {
+    transform: scale(1); /* Volver al tamaño normal cuando se presiona */
+    background: linear-gradient(45deg, #1e3c72, #2a5298); /* Mantener el degradado */
+  }
+
+  /* Efecto foco */
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.6); /* Resaltar el botón al obtener foco */
+  }
+}
+
+/* Estilos de los ítems de los viajes */
+.trip-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 20px;
+  box-shadow: none; /* Eliminar sombra en los ítems */
+  overflow: visible; /* Permite que los elementos dentro del contenedor no se recorten */
+}
+
+/* Sección de inicio y fin del viaje */
+.trip-start-end {
+  display: flex;
+  flex-direction: column; /* Cambié a columna para que los títulos estén arriba */
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #f1f9ff; /* Fondo suave para los destinos */
+  padding: 12px; /* Más espacio alrededor del texto */
+  border-radius: 8px;
+  margin-bottom: 15px; /* Separación entre secciones */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+.trip-start-title,
+.trip-end-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333; /* Color negro para los títulos */
+  margin-bottom: 5px; /* Espacio debajo del título */
+}
+
+.trip-start,
+.trip-end {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.trip-start {
+  color: #007bff; /* Azul para el punto de partida */
+}
+
+.trip-end {
+  color: #28a745; /* Verde para el destino */
+}
+
+/* Detalles del viaje */
 .trip-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
+  background-color: #f8f9fa; /* Fondo más suave para detalles */
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%; /* Asegura que ocupe todo el ancho */
 }
 
-.expanded-image {
-  width: 100%;  /* Imagen toma todo el ancho disponible */
-  max-width: 350px;  /* Limitar el tamaño máximo */
-  height: 250px;  /* Aumentar la altura */
-  border-radius: 20px;  /* Bordes más redondeados */
-  object-fit: cover;
-  margin-bottom: 15px;  /* Espacio debajo de la imagen */
+.trip-driver,
+.trip-cost,
+.trip-seats {
+  margin: 8px 0;
+  font-weight: 600;
+  font-size: 1.1rem; /* Ajuste de tamaño de texto */
 }
 
-.centered-image {
-  display: block;
-  margin: 0 auto;
+.icon-driver,
+.icon-cost,
+.icon-seats {
+  font-size: 1.5rem;
+  margin-right: 8px; /* Separar los iconos de los textos */
 }
 
-.trip-info {
-  text-align: center;  /* Centrar el texto de la información */
+.trip-driver span,
+.trip-cost span,
+.trip-seats span {
+  font-weight: 500; /* Negrita para los valores importantes */
 }
 
-.trip-cost span, .trip-passengers span {
+/* Colores correspondientes a los iconos */
+.icon-driver {
+  color: #007bff; /* Azul para el conductor */
+}
+
+.icon-cost {
+  color: #dc3545; /* Rojo para el costo */
+}
+
+.icon-seats {
+  color: #ffc107; /* Amarillo para los asientos */
+}
+
+.trip-driver {
+  color: #007bff; /* Azul para el conductor */
+}
+
+.trip-cost {
+  color: #dc3545; /* Rojo para el costo */
+}
+
+.trip-seats {
+  color: #ffc107; /* Amarillo para los asientos */
+}
+
+/* Estilo para el card de bienvenida */
+.welcome-card {
+  margin-bottom: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: none; /* Eliminar sombra */
+}
+
+.welcome-card ion-card-title {
+  text-align: center;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #3880ff;
+  color: #333;
 }
 
-.qr-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .trip-button {
+    font-size: 14px; /* Reducir tamaño del texto en botones */
+  }
+
+  .trip-start,
+  .trip-end {
+    font-size: 1rem; /* Ajustar tamaños de texto */
+  }
 }
 
-.qr-image {
-  width: 150px;
-  height: 150px;
+@media (max-width: 480px) {
+  .trip-button {
+    font-size: 13px;
+  }
+
+  .trip-start,
+  .trip-end {
+    font-size: 0.9rem;
+  }
 }
-
-
-  
-  

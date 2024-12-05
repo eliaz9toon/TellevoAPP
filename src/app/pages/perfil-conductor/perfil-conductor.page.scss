@@ -1,70 +1,102 @@
+/* Estilos generales del perfil */
 .profile-header {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0; /* Línea divisoria para la cabecera */
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0; /* Línea divisoria para la cabecera */
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-image-container {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  background-color: white;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  margin-top: 60px;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.rating, .years {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.achievements {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.achievement-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+.achievement-item ion-icon {
+  margin-right: 5px;
+}
+
+/* Estilos para el botón "Mis Datos" */
+.mis-datos-button {
+  display: inline-block;
+  background: linear-gradient(45deg, #6c757d, #495057); /* Degradado de gris */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 25px; /* Bordes redondeados */
+  padding: 12px 30px; /* Espaciado interior */
+  font-size: 16px; /* Tamaño de la fuente */
+  text-align: center; /* Alinear el texto */
+  width: 100%; /* Asegura que el botón ocupe el ancho completo del contenedor */
+  cursor: pointer; /* Cursor tipo puntero cuando el mouse pasa sobre el botón */
+  transition: all 0.3s ease; /* Animación suave para transiciones */
+
+  /* Efecto de hover */
+  &:hover {
+    background: linear-gradient(45deg, #495057, #6c757d); /* Invertir el degradado en hover */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
   }
-  
-  .background-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+  /* Efecto de foco */
+  &:focus {
+    outline: none; /* Quitar el borde por defecto del foco */
   }
-  
-  .profile-image-container {
-    position: absolute;
-    bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid white;
-    background-color: white;
+
+  /* Efecto de desactivado */
+  &:disabled {
+    background: #d6d8db; /* Gris claro cuando el botón está desactivado */
+    cursor: not-allowed; /* Cursor de no permitido */
   }
-  
-  .profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .profile-info {
-    margin-top: 60px;
-    text-align: center;
-    padding: 0 16px;
-  }
-  
-  .rating, .years {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-  }
-  
-  .achievements {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .achievement-icons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .achievement-item {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    margin: 0 10px;
-  }
-  
-  .achievement-item ion-icon {
-    margin-right: 5px;
-  }
-  
+}

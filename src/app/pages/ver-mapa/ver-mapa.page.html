@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/usuario-dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ver Mapa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Mostrar solo el viaje seleccionado -->
+  <div *ngIf="selectedTrip">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Detalles del Viaje</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Inicio: {{ selectedTrip.startAddress }}</p>
+        <p>Fin: {{ selectedTrip.endAddress }}</p>
+        <p>Costo: {{ selectedTrip.tripCost | currency: 'CLP' }}</p>
+        <p>Asientos Disponibles: {{ selectedTrip.availableSeats }}</p>
+      </ion-card-content>
+      <ion-button (click)="updateAvailableSeats()" [disabled]="selectedTrip.availableSeats <= 0">
+        Tomar Viaje
+      </ion-button>
+    </ion-card>
+  </div>
+  
+  <!-- Si no se ha seleccionado ningún viaje, mostrar la lista de viajes -->
+  <ion-list *ngIf="!selectedTrip">
+    <ion-item *ngFor="let trip of trips$ | async" (click)="selectTrip(trip)">
+      <ion-label>
+        <h2>Inicio: {{ trip.startAddress }}</h2>
+        <h2>Fin: {{ trip.endAddress }}</h2>
+        <h3>Costo: {{ trip.tripCost | currency: 'CLP' }}</h3>
+        <h3>Asientos Disponibles: {{ trip.availableSeats }}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

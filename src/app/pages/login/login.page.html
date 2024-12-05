@@ -1,28 +1,77 @@
-<ion-content>
-  <!-- Imagen en la parte superior, fuera de la tarjeta -->
-  <ion-img src="assets/icon/logo.png" alt="Logo del sistema" class="logo"></ion-img>
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-title class="ion-text-center">Bienvenido</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-card>
+<ion-content class="login-background" scrollY="false">
+  <div class="login-container">
     <ion-card-header>
-      <ion-card-title>Bienvenido al sistema</ion-card-title>
-      <ion-card-subtitle>Ingrese credenciales</ion-card-subtitle>
+      <ion-card-title class="ion-text-center title">Ingrese sus credenciales:</ion-card-title>
     </ion-card-header>
-  
+
     <ion-card-content [formGroup]="loginForm">
       <ion-item>
-        <ion-input formControlName="email" [(ngModel)]="emailValue" type="email" label="Ingrese correo" labelPlacement="floating" placeholder="escriba aquí"></ion-input>
+        <ion-icon slot="start" name="mail" class="input-icon"></ion-icon>
+        <ion-input
+          [(ngModel)]="emailValue"
+          formControlName="email"
+          type="email"
+          placeholder="Correo Electrónico"
+          label="Correo Electrónico"
+          labelPlacement="floating"
+        ></ion-input>
       </ion-item>
-      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('email')?.hasError('required')">El email es requerido</ion-text>
-      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('email')?.hasError('email')">El email es inválido</ion-text>
-      <ion-item>
-        <ion-input formControlName="password" [(ngModel)]="passValue" type="password" label="Ingrese contraseña" labelPlacement="floating" placeholder="escriba aquí"></ion-input>
-      </ion-item>
-      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('password')?.hasError('required')">La contraseña es requerida</ion-text>
-      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('password')?.hasError('minlength')">La contraseña debe tener 6 caracteres como mínimo</ion-text>
-      <ion-button (click)="login()" expand="full">Ingresar</ion-button>
-      <ion-button routerLink="/register" expand="full">Registrarse</ion-button><ion-button routerLink="/invitado-dashboard" expand="full">Iniciar como invitado</ion-button>
-      <a routerLink="/reset-contra">Olvide mi contraseña</a>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+      <ion-text color="danger" *ngIf="loginForm.get('email')?.hasError('required')" class="error-text">
+        El email es requerido.
+      </ion-text>
+      <ion-text color="danger" *ngIf="loginForm.get('email')?.hasError('email')" class="error-text">
+        El email es inválido.
+      </ion-text>
 
+      <ion-item>
+        <ion-icon slot="start" name="lock-closed" class="input-icon"></ion-icon>
+        <ion-input
+          [(ngModel)]="passValue"
+          formControlName="password"
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Contraseña"
+          label="Contraseña"
+          labelPlacement="floating"
+        ></ion-input>
+        <ion-button slot="end" (click)="togglePasswordVisibility()" fill="clear">
+          <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-text color="danger" *ngIf="loginForm.get('password')?.hasError('required')" class="error-text">
+        La contraseña es requerida.
+      </ion-text>
+      <ion-text color="danger" *ngIf="loginForm.get('password')?.hasError('minlength')" class="error-text">
+        La contraseña debe tener al menos 6 caracteres.
+      </ion-text>
+
+      <div class="link-container">
+        <button class="styled-button login-button" (click)="login()">Ingresar</button>
+      </div>
+      <div class="link-container">
+        <button class="styled-button register-button" routerLink="/register">Registrarse</button>
+      </div>
+
+      <!-- Enlace "Olvidaste tu contraseña" más cerca -->
+      <div class="link-container forgot-password-container">
+        <a routerLink="/reset-contra" class="styled-link forgot-password">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <div class="social-buttons">
+        <ion-icon name="logo-google" class="social-icon" (click)="loginWithGoogle()"></ion-icon>
+        <ion-icon name="logo-github" class="social-icon" (click)="loginWithGithub()"></ion-icon>
+      </div>
+
+      <div class="link-container create-user-container">
+        <a class="styled-link create-user-button" (click)="createUsuario()">Crear Usuario</a>
+        <span class="separator"> | </span>
+        <a class="styled-link create-driver-button" (click)="createConductor()">Crear Conductor</a>
+      </div>
+    </ion-card-content>
+  </div>
+</ion-content>

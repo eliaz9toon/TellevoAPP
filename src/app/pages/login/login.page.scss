@@ -1,12 +1,147 @@
-ion-card{
-    margin-top: 30px;
+/* Estilos generales */
+.login-background {
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura total de la pantalla */
+  overflow: hidden; /* Evitar el desplazamiento */
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alineamos los elementos hacia el inicio */
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Para no dejar que se expanda demasiado en pantallas grandes */
+  padding-top: 20px; /* Ajustamos para que se vea bien centrado */
+}
+
+.custom-toolbar {
+  background: linear-gradient(45deg, #4caf50, #3880ff);
+  color: white;
+}
+
+.custom-toolbar ion-title {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.styled-button {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 30px;
+  padding: 12px;
+  color: white;
+  border: none;
+  font-size: 16px;
+  transition: transform 0.2s ease, background 0.3s ease;
+  margin-bottom: 10px; /* Reducido margen entre los botones */
+
+  &:hover {
+    transform: scale(1.05);
   }
-  .logo {
-    display: block;
-    margin: 5px auto; /* Centra la imagen y añade un margen superior e inferior */
-    width: 150px; /* Ajusta el tamaño de la imagen según sea necesario */
-    height: auto;
-    margin-top: 35px;
+}
+
+.login-button {
+  background: linear-gradient(45deg, #4caf50, #3880ff);
+}
+
+.register-button {
+  background: linear-gradient(45deg, #ff9800, #f44336);
+}
+
+/* Estilos para los iconos sociales */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; /* Ajustado el margen entre botones sociales y otros elementos */
+
+  .social-icon {
+    font-size: 40px;
+    margin: 0 15px; /* Espaciado entre iconos */
+    color: #333; /* Color oscuro para los iconos */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el icono */
+    transition: transform 0.3s ease; /* Animación de transformación */
+
+    &:hover {
+      transform: scale(1.1); /* Aumentar tamaño al pasar el mouse */
+    }
   }
-  
-  
+}
+
+/* Estilos para los enlaces de crear usuario/conductor */
+.create-user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Ajuste para que queden más cerca */
+  width: 100%;
+  text-align: center;
+}
+
+.create-user-button,
+.create-driver-button {
+  margin: 0 5px; /* Reducción del margen lateral entre los enlaces */
+  font-size: 16px; /* Ajustar tamaño de fuente si es necesario */
+  color: #3880ff; /* Color del texto */
+  text-decoration: none; /* Sin subrayado */
+  transition: color 0.3s ease; /* Animación para el cambio de color */
+
+  &:hover {
+    color: #ff4081; /* Cambiar color al pasar el mouse */
+    text-decoration: underline; /* Subrayar el texto en hover */
+  }
+}
+
+.separator {
+  font-size: 18px;
+  margin: 0 8px;
+  color: #777;
+}
+
+/* Estilos para el enlace "¿Olvidaste tu contraseña?" */
+.forgot-password-container {
+  text-align: center; /* Centrar el enlace */
+  margin-top: 2px; /* Ajustar margen superior para acercarlo más */
+  width: 100%; /* Aseguramos que ocupe todo el ancho disponible */
+}
+
+.forgot-password {
+  display: inline-block;
+  padding: 6px 0; /* Reducir un poco más el tamaño del padding */
+  font-size: 16px; /* Ajustar tamaño de fuente */
+  transition: transform 0.3s ease, color 0.3s ease; /* Animación de transición */
+  color: #3880ff;
+  text-decoration: none;
+  margin-top: 5px; /* Reducido margen para acercarlo más a los botones */
+
+  &:hover {
+    transform: scale(1.05); /* Aumentar tamaño al pasar el mouse */
+    color: #ff4081; /* Cambiar color al pasar el mouse */
+    text-decoration: underline; /* Subrayar el texto en hover */
+  }
+}
+
+/* Estilos para los mensajes de error centrados */
+.error-text {
+  display: block;
+  text-align: center; /* Centramos los mensajes de error */
+  font-size: 12px;
+  margin-top: 5px;
+  width: 100%;
+  color: #ff4d4d; /* Color rojo para los errores */
+}
+
+ion-input {
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: 1.1rem;
+}
+
+.styled-button {
+  font-size: 14px;
+}

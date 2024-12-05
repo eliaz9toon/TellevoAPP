@@ -1,119 +1,189 @@
-ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #fff));
-}
+@import "~leaflet/dist/leaflet.css"; // Importa Leaflet solo si se utiliza
 
-ion-menu.md ion-content {
-  --padding-start: 8px;
-  --padding-end: 8px;
-  --padding-top: 20px;
-  --padding-bottom: 20px;
-}
+// Variables
+$background-color: var(--ion-item-background, var(--ion-background-color, #fff));
+$primary-color: var(--ion-color-primary);
+$medium-shade: var(--ion-color-medium-shade);
 
-ion-menu.md ion-list {
-  padding: 20px 0;
-}
+// Estilos generales
+ion-menu {
+  ion-content {
+    --background: $background-color;
 
-ion-menu.md ion-note {
-  margin-bottom: 30px;
-}
+    // Padding por defecto
+    &.md {
+      --padding-start: 8px;
+      --padding-end: 8px;
+      --padding-top: 20px;
+      --padding-bottom: 20px;
+    }
 
-ion-menu.md ion-list-header,
-ion-menu.md ion-note {
-  padding-left: 10px;
-}
+    &.ios {
+      --padding-bottom: 20px;
+    }
+  }
 
-ion-menu.md ion-list#inbox-list {
-  border-bottom: 1px solid var(--ion-background-color-step-150, #d7d8da);
-}
+  ion-list {
+    padding: 20px 0;
 
-ion-menu.md ion-list#inbox-list ion-list-header {
-  font-size: 22px;
-  font-weight: 600;
+    &.md {
+      border-bottom: 1px solid var(--ion-background-color-step-150, #d7d8da);
+    }
 
-  min-height: 20px;
-}
+    &.ios {
+      padding: 20px 0 0;
+    }
 
-ion-menu.md ion-list#labels-list ion-list-header {
-  font-size: 16px;
+    ion-list-header {
+      padding-left: 10px;
 
-  margin-bottom: 18px;
+      &.md {
+        font-size: 22px;
+        font-weight: 600;
+        min-height: 20px;
+      }
 
-  color: #757575;
+      &.ios {
+        margin-bottom: 8px;
+      }
+    }
 
-  min-height: 26px;
-}
+    ion-note {
+      margin-bottom: 30px;
 
-ion-menu.md ion-item {
-  --padding-start: 10px;
-  --padding-end: 10px;
-  border-radius: 4px;
-}
+      &.ios {
+        margin-bottom: 20px;
+        line-height: 24px;
+      }
+    }
+  }
 
-ion-menu.md ion-item.selected {
-  --background: rgba(var(--ion-color-primary-rgb), 0.14);
-}
+  ion-item {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    border-radius: 4px;
 
-ion-menu.md ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
-}
+    &.selected {
+      --background: rgba(var(--ion-color-primary-rgb), 0.14);
+      --color: $primary-color;
 
-ion-menu.md ion-item ion-icon {
-  color: #616e7e;
-}
+      ion-icon {
+        color: $primary-color;
+      }
+    }
 
-ion-menu.md ion-item ion-label {
-  font-weight: 500;
-}
+    ion-icon {
+      color: #616e7e;
 
-ion-menu.ios ion-content {
-  --padding-bottom: 20px;
-}
+      &.ios {
+        font-size: 24px;
+        color: #73849a;
+      }
+    }
 
-ion-menu.ios ion-list {
-  padding: 20px 0 0 0;
-}
+    ion-label {
+      font-weight: 500;
+    }
 
-ion-menu.ios ion-note {
-  line-height: 24px;
-  margin-bottom: 20px;
-}
+    // Ajustes de padding para diferentes plataformas
+    &.md {
+      --min-height: 50px;
+      --padding-start: 10px;
+      --padding-end: 10px;
+    }
 
-ion-menu.ios ion-item {
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --min-height: 50px;
-}
-
-ion-menu.ios ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
-}
-
-ion-menu.ios ion-item ion-icon {
-  font-size: 24px;
-  color: #73849a;
-}
-
-ion-menu.ios ion-list#labels-list ion-list-header {
-  margin-bottom: 8px;
-}
-
-ion-menu.ios ion-list-header,
-ion-menu.ios ion-note {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-ion-menu.ios ion-note {
-  margin-bottom: 8px;
+    &.ios {
+      --padding-start: 16px;
+      --padding-end: 16px;
+    }
+  }
 }
 
 ion-note {
   display: inline-block;
   font-size: 16px;
-
-  color: var(--ion-color-medium-shade);
+  color: $medium-shade;
 }
 
-ion-item.selected {
-  --color: var(--ion-color-primary);
+/* Estilos adicionales para la aplicación */
+ion-content {
+  --background: #ffffff; /* Fondo blanco en todo el contenido */
+  --color: #000000; /* Texto negro */
+}
+
+ion-toolbar {
+  --background: #ffffff; /* Fondo blanco para el toolbar */
+  --color: #000000; /* Texto negro en el toolbar */
+}
+
+ion-item {
+  --background: #ffffff; /* Fondo blanco para los ítems */
+  --color: #000000; /* Texto negro en los ítems */
+}
+
+ion-button {
+  --background: #3880ff; /* Fondo azul claro */
+  --color: white; /* Texto blanco en los botones */
+}
+
+/* Estilo para el botón de cerrar sesión */
+.logout-button {
+  --background: #ff3b30;  /* Fondo rojo */
+  --color: #ffffff;       /* Texto blanco */
+  
+  ion-icon {
+    --color: #ffffff !important;  /* Icono blanco */
+  }
+
+  ion-label {
+    --color: #ffffff;  /* Texto blanco */
+  }
+
+  &:hover {
+    /* Opción 1: Fondo más claro al pasar el mouse */
+    --background: #ff453a; /* Color de fondo más claro en hover */
+    background-color: #ff453a; /* Alternativa para asegurar el efecto */
+  }
+  /* Alternativa: Opción 2 con fondo más oscuro */
+  // &:hover {
+  //   --background: #e63946; /* Un tono de rojo más oscuro/rojizo */
+  //   background-color: #e63946; /* Alternativa para asegurar el efecto */
+  // }
+}
+
+/* Estilo para el nombre y tipo de usuario */
+.welcome-header {
+  text-align: center;   /* Centra el texto */
+  font-size: 26px;      /* Tamaño de fuente para 'Bienvenido' */
+  font-weight: 700;     /* Negrita para el título */
+  color: #000000;       /* Color negro */
+  margin-bottom: 12px;  /* Espacio debajo del título */
+  
+  /* Agregar espaciado entre 'Bienvenido' y el tipo de usuario */
+  span.user-type {
+    color: #000000;     /* Color negro para el tipo de usuario */
+    font-weight: 600;   /* Negrita para el tipo de usuario */
+    text-transform: capitalize; /* Asegura que la primera letra sea mayúscula */
+    margin-left: 5px;   /* Añadir espacio después de la coma */
+  }
+
+  /* Tamaño de fuente en dispositivos más pequeños */
+  @media (max-width: 768px) {
+    font-size: 20px; /* Reducir el tamaño de la fuente para pantallas medianas */
+    margin-bottom: 8px; /* Reducir el margen inferior */
+    
+    span.user-type {
+      font-size: 20px; /* Aseguramos que el tamaño sea igual al de 'Bienvenido' */
+    }
+  }
+
+  /* Tamaño de fuente en dispositivos muy pequeños */
+  @media (max-width: 480px) {
+    font-size: 18px; /* Reducir aún más el tamaño de la fuente */
+    margin-bottom: 5px; /* Menor espacio debajo del título */
+    
+    span.user-type {
+      font-size: 18px; /* Aseguramos que el tamaño sea igual al de 'Bienvenido' */
+    }
+  }
 }

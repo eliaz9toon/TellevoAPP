@@ -1,37 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button> <!-- Icono de menú -->
     </ion-buttons>
-    <ion-title>Viajes disponibles</ion-title>
+    <ion-title>Viajes Disponibles</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-accordion-group expand="inset">
-    <ion-accordion *ngFor="let aux of verViajes">
-      <ion-item slot="header" style="--min-height: 60px;">
-        <ion-label style="font-weight: bold; font-size: 1.1em;">{{ aux.inicio }} hasta {{ aux.fin }}</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <div class="trip-details">
-          <img [src]="aux.imagen" alt="Imagen del viaje" class="expanded-image centered-image">
-          <div class="trip-info">
-            <p class="trip-cost">Precio: <span>{{ aux.costo }} CLP</span></p>
-            <p class="trip-passengers">Asientos disponibles: <span>{{ aux.pasajeros }}</span></p>
-          </div>
-        </div>
-        <ion-button *ngIf="!selectedViaje" expand="full" color="primary" shape="round" (click)="confirmarViaje(aux)">
-          Confirmar Viaje
-        </ion-button>
-        <ion-button *ngIf="selectedViaje === aux" expand="full" color="danger" shape="round" (click)="cancelarViaje()">
-          Cancelar Viaje
-        </ion-button>
-        <div *ngIf="selectedViaje === aux" class="qr-container">
-          <img src="assets/icon/qr1.png" alt="QR del viaje" class="qr-image">
-        </div>
-      </div>
-    </ion-accordion>
-  </ion-accordion-group>
-</ion-content>
+<ion-content class="travel-list-content">
+  <!-- Título de bienvenida con el nombre del usuario -->
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title>Bienvenido, {{ userName || 'Usuario' }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
+  <ion-list>
+    <ion-item *ngFor="let trip of trips" class="trip-item">
+      <div class="trip-info">
+        <div class="trip-start-end">
+          <h3 class="trip-start-title">Punto de partida</h3>
+          <h3 class="trip-start">{{ trip.startAddress }}</h3>
+          <h3 class="trip-end-title">Destino</h3>
+          <h4 class="trip-end">{{ trip.endAddress }}</h4>
+        </div>
+        <div class="trip-details">
+          <ion-icon name="person-circle-outline" class="icon-driver"></ion-icon>
+          <p class="trip-driver">Conductor: <span>{{ trip.userName || 'Cargando...' }}</span></p>
+          <ion-icon name="cash-outline" class="icon-cost"></ion-icon>
+          <p class="trip-cost">Costo del Viaje: <span>{{ trip.tripCost | currency:'CLP' }}</span></p>
+          <ion-icon name="people-outline" class="icon-seats"></ion-icon>
+          <p class="trip-seats">Asientos Disponibles: <span>{{ trip.availableSeats }}</span></p>
+        </div>
+
+        <!-- Botón rehacido -->
+        <button class="trip-button" (click)="takeTrip(trip)">Tomar viaje</button>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

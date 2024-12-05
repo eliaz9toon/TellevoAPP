@@ -1,18 +1,62 @@
-<!-- home.page.html -->
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/usuario-dashboard" style="--ion-icon-margin: 0;"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ver Mapa</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Bienvenido</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Correo electrónico: {{ usuarioLogin }}</p>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+  <div *ngIf="selectedTrip" class="trip-details">
+    <ion-item class="trip-item">
+      <ion-label>
+        <div class="trip-text">
+          <ion-icon name="location" class="trip-icon start"></ion-icon>
+          <h2 class="trip-start">Inicio: {{ selectedTrip.startAddress }}</h2>
+        </div>
+        <div class="trip-text">
+          <ion-icon name="location" class="trip-icon end"></ion-icon>
+          <h2 class="trip-end">Fin: {{ selectedTrip.endAddress }}</h2>
+        </div>
+        <div class="trip-text">
+          <ion-icon name="cash" class="trip-icon cost"></ion-icon>
+          <h3 class="trip-cost">Costo: {{ selectedTrip.tripCost | currency: 'CLP' }}</h3>
+        </div>
+        <div class="trip-text">
+          <ion-icon name="person" class="trip-icon seats"></ion-icon>
+          <h3 class="trip-seats">Asientos Disponibles: {{ selectedTrip.availableSeats }}</h3>
+        </div>
+      </ion-label>
+    </ion-item>
+  </div>
+<div>
+  <button (click)="openMapModal(selectedTrip)" class="view-map-button">
+    <ion-icon name="map" class="map-icon"></ion-icon> Ver Mapa
+  </button>
+</div>
+  
+  
+<!-- Contenedor para centrar el botón -->
+<div class="button-container">
+  <button *ngIf="qrScanned" (click)="disminuirAsiento(selectedTrip)" class="decrease-seat-button" [disabled]="!selectedTrip?.availableSeats">
+    <ion-icon name="remove-circle" class="remove-seat-icon"></ion-icon> 
+    <span>Tomar viaje</span>
+  </button>
+</div>
 
+  
+
+  <ion-list>
+    <ion-item *ngFor="let barcode of barcodes" class="barcode-item">
+      <ion-label position="stacked">{{ barcode.format }}</ion-label>
+      <ion-input type="text" [value]="barcode.rawValue" readonly></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="center">
+    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

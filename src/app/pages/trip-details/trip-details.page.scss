@@ -1,0 +1,48 @@
+.trip-details {
+    --ion-background-color: #f4f4f4; /* Fondo claro */
+    padding: 1rem;
+  }
+  
+  .header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .trip-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  ion-card-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+  }
+  
+  .qr-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+  
+  .end-trip-btn {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    --background: #e74c3c;
+    --background-hover: #c0392b;
+    --color: #fff;
+    --border-radius: 20px;
+    --box-shadow: 0 4px 6px rgba(231, 76, 60, 0.3);
+  }
+  

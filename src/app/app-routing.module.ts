@@ -20,12 +20,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: 'reset-contra',
     loadChildren: () => import('./pages/reset-contra/reset-contra.module').then( m => m.ResetContraPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'home-conductor',
@@ -74,6 +74,26 @@ const routes: Routes = [
   {
     path: 'confirmar-formulario',
     loadChildren: () => import('./pages/confirmar-formulario/confirmar-formulario.module').then( m => m.ConfirmarFormularioPageModule)
+  },
+  {
+    path: 'edit-user/:uid',
+    loadChildren: () => import('./pages/edit-user/edit-user.module').then( m => m.EditUserPageModule)
+  },
+  {
+    path: 'mapa',
+    loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
+  },
+  {
+    path: 'profile/:uid',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'trip-details/:id',
+    loadChildren: () => import('./pages/trip-details/trip-details.module').then( m => m.TripDetailsPageModule)
+  },
+  {
+    path: 'ver-mapa',
+    loadChildren: () => import('./pages/ver-mapa/ver-mapa.module').then( m => m.VerMapaPageModule)
   },
 ];
 

@@ -1,7 +1,8 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
+    <!-- Ícono de hamburguesa -->
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Perfil</ion-title>
   </ion-toolbar>
@@ -53,6 +54,15 @@
           </div>
         </div>
       </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón para ir a "Home Conductor" -->
+  <ion-card>
+    <ion-card-content>
+      <button expand="full" [routerLink]="['/home-conductor']" class="mis-datos-button">
+        Mis Datos
+      </button>
     </ion-card-content>
   </ion-card>
 </ion-content>

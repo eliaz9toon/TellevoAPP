@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Botón de menú hamburguesa -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>🚗 Mapa de Viaje del Conductor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Tarjeta con detalles del viaje -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Datos del Viaje</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Dirección de inicio -->
+      <ion-item>
+        <ion-input
+          label="📍 Dirección de Inicio"
+          labelPlacement="floating"
+          id="startAddress"
+          placeholder="Ingrese la dirección">
+        </ion-input>
+      </ion-item>
+
+      <!-- Dirección final -->
+      <ion-item>
+        <ion-input
+          label="📍 Dirección Final"
+          labelPlacement="floating"
+          id="endAddress"
+          placeholder="Ingrese la dirección">
+        </ion-input>
+      </ion-item>
+
+      <!-- Costo del viaje -->
+      <ion-item lines="none">
+        <ion-label>Costo del Viaje:</ion-label>
+        <ion-text color="success">
+          {{ tripCost | currency:'CLP' }}
+        </ion-text>
+      </ion-item>
+
+      <!-- Asientos disponibles -->
+      <ion-item lines="none">
+        <ion-label>Asientos Disponibles:</ion-label>
+        <ion-button (click)="updateSeats('remove')" fill="clear" color="danger">
+          -
+        </ion-button>
+        <ion-text color="dark">{{ availableSeats }}</ion-text>
+        <ion-button (click)="updateSeats('add')" fill="clear" color="success">
+          +
+        </ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botones de acción -->
+  <ion-button expand="block" color="tertiary" shape="round" (click)="findRoute()">
+    Buscar Ruta
+  </ion-button>
+  <ion-button expand="block" color="primary" shape="round" (click)="showRoute()">
+    Crear Viaje
+  </ion-button>
+
+  <!-- Contenedor del mapa -->
+  <div id="map"></div>
+</ion-content>

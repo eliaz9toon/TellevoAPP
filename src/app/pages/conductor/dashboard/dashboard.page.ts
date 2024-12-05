@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IonRouterOutlet } from '@ionic/angular'; // Importa IonRouterOutlet
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
-export class DashboardPage {
+export class DashboardPage implements OnInit {
   selectedPointA: string = '';
   selectedPointB: string = '';
   fare: number | null = null;
@@ -14,8 +15,10 @@ export class DashboardPage {
   showRouteImage: boolean = false;
   formComplete: boolean = false;
 
-  constructor() {
-    // No es necesario inicializar `checkFormValidity` aquí, ya que `ngModelChange` se encargará
+  constructor(private routerOutlet: IonRouterOutlet) { }
+
+  ngOnInit() {
+    this.routerOutlet.swipeGesture = true; // Habilita el swipeGesture solo en esta página
   }
 
   // Comprobar si todos los campos necesarios están completos
@@ -34,5 +37,3 @@ export class DashboardPage {
     console.log('Abrir lector de QR');
   }
 }
-
-

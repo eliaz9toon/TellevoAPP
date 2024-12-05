@@ -1,36 +1,13 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button> <!-- Icono para abrir el menú lateral -->
     </ion-buttons>
-    <ion-title>Viajes disponibles</ion-title>
+    <ion-title>
+      Home
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-accordion-group expand="inset">
-    <ion-accordion *ngFor="let aux of verViajes">
-      <ion-item slot="header" style="--min-height: 60px;">
-        <ion-label style="font-weight: bold; font-size: 1.1em;">{{ aux.inicio }} hasta {{ aux.fin }}</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <div class="trip-details">
-          <img [src]="aux.imagen" alt="Imagen del viaje" class="expanded-image centered-image">
-          <div class="trip-info">
-            <p class="trip-cost">Precio: <span>{{ aux.costo }} CLP</span></p>
-            <p class="trip-passengers">Asientos disponibles: <span>{{ aux.pasajeros }}</span></p>
-          </div>
-        </div>
-        <ion-button *ngIf="!selectedViaje" expand="full" color="primary" shape="round" (click)="confirmarViaje(aux)">
-          Confirmar Viaje
-        </ion-button>
-        <ion-button *ngIf="selectedViaje === aux" expand="full" color="danger" shape="round" (click)="cancelarViaje()">
-          Cancelar Viaje
-        </ion-button>
-        <div *ngIf="selectedViaje === aux" class="qr-container">
-          <img src="assets/icon/qr1.png" alt="QR del viaje" class="qr-image">
-        </div>
-      </div>
-    </ion-accordion>
-  </ion-accordion-group>
 </ion-content>

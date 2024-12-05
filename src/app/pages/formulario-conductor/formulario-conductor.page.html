@@ -1,72 +1,81 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Registro Conductor</ion-title>
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title>Formulario Conductor</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <ion-list>
-
-      <!-- Campo Nombre Completo -->
-      <ion-item>
-        <ion-label position="floating">Nombre Completo</ion-label>
-        <ion-input formControlName="fullName" type="text" placeholder="Escriba su nombre completo"></ion-input>
+    <!-- Nombre Completo -->
+    <div class="form-group">
+      <ion-item class="form-item">
+        <ion-label position="floating" class="label">Nombre Completo</ion-label>
+        <ion-input formControlName="fullName" type="text" required></ion-input>
       </ion-item>
-      <ion-text *ngIf="registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched" color="danger">
-        <p>Este campo es obligatorio.</p>
+      <ion-text *ngIf="formControls['fullName'].invalid && formControls['fullName'].touched" color="danger" class="error-message show-error">
+        <div>Nombre completo es requerido y debe tener al menos 3 caracteres.</div>
       </ion-text>
+    </div>
 
-      <!-- Campo Número de Teléfono -->
-      <ion-item>
-        <ion-label position="floating">Número de Teléfono</ion-label>
-        <ion-input formControlName="phone" type="tel" placeholder="Escriba su número de teléfono"></ion-input>
+    <!-- Teléfono -->
+    <div class="form-group">
+      <ion-item class="form-item">
+        <ion-label position="floating" class="label">Teléfono</ion-label>
+        <ion-input formControlName="phone" type="text" required></ion-input>
       </ion-item>
-      <ion-text *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched" color="danger">
-        <p>Debe ingresar un número de teléfono válido (10 dígitos).</p>
+      <ion-text *ngIf="formControls['phone'].invalid && formControls['phone'].touched" color="danger" class="error-message show-error">
+        <div>Teléfono es requerido y debe tener 10 dígitos.</div>
       </ion-text>
+    </div>
 
-      <!-- Campo Número de Licencia -->
-      <ion-item>
-        <ion-label position="floating">Número de Licencia</ion-label>
-        <ion-input formControlName="licenseNumber" type="text" placeholder="Escriba su número de licencia"></ion-input>
+    <!-- Número de Licencia -->
+    <div class="form-group">
+      <ion-item class="form-item">
+        <ion-label position="floating" class="label">Número de Licencia</ion-label>
+        <ion-input formControlName="licenseNumber" type="text" required></ion-input>
       </ion-item>
-      <ion-text *ngIf="registerForm.get('licenseNumber')?.invalid && registerForm.get('licenseNumber')?.touched" color="danger">
-        <p>Este campo es obligatorio.</p>
+      <ion-text *ngIf="formControls['licenseNumber'].invalid && formControls['licenseNumber'].touched" color="danger" class="error-message show-error">
+        <div>Número de Licencia es requerido.</div>
       </ion-text>
+    </div>
 
-      <!-- Campo Matrícula del Conductor -->
-      <ion-item>
-        <ion-label position="floating">Matrícula del Conductor</ion-label>
-        <ion-input formControlName="plateNumber" type="text" placeholder="Escriba la matrícula del conductor"></ion-input>
+    <!-- Número de Placa -->
+    <div class="form-group">
+      <ion-item class="form-item">
+        <ion-label position="floating" class="label">Número de Placa</ion-label>
+        <ion-input formControlName="plateNumber" type="text" required></ion-input>
       </ion-item>
-      <ion-text *ngIf="registerForm.get('plateNumber')?.invalid && registerForm.get('plateNumber')?.touched" color="danger">
-        <p>Este campo es obligatorio.</p>
+      <ion-text *ngIf="formControls['plateNumber'].invalid && formControls['plateNumber'].touched" color="danger" class="error-message show-error">
+        <div>Número de Placa es requerido.</div>
       </ion-text>
+    </div>
 
-      <!-- Campo Marca del Vehículo -->
-      <ion-item>
-        <ion-label position="floating">Marca del Vehículo</ion-label>
-        <ion-input formControlName="vehicleBrand" type="text" placeholder="Escriba la marca del vehículo"></ion-input>
+    <!-- Marca del Vehículo -->
+    <div class="form-group">
+      <ion-item class="form-item">
+        <ion-label position="floating" class="label">Marca del Vehículo</ion-label>
+        <ion-input formControlName="vehicleBrand" type="text" required></ion-input>
       </ion-item>
-      <ion-text *ngIf="registerForm.get('vehicleBrand')?.invalid && registerForm.get('vehicleBrand')?.touched" color="danger">
-        <p>Este campo es obligatorio.</p>
+      <ion-text *ngIf="formControls['vehicleBrand'].invalid && formControls['vehicleBrand'].touched" color="danger" class="error-message show-error">
+        <div>Marca del Vehículo es requerida.</div>
       </ion-text>
+    </div>
 
-      <!-- Campo Modelo del Vehículo -->
-      <ion-item>
-        <ion-label position="floating">Modelo del Vehículo</ion-label>
-        <ion-input formControlName="vehicleModel" type="text" placeholder="Escriba el modelo del vehículo"></ion-input>
+    <!-- Modelo del Vehículo -->
+    <div class="form-group">
+      <ion-item class="form-item">
+        <ion-label position="floating" class="label">Modelo del Vehículo</ion-label>
+        <ion-input formControlName="vehicleModel" type="text" required></ion-input>
       </ion-item>
-      <ion-text *ngIf="registerForm.get('vehicleModel')?.invalid && registerForm.get('vehicleModel')?.touched" color="danger">
-        <p>Este campo es obligatorio.</p>
+      <ion-text *ngIf="formControls['vehicleModel'].invalid && formControls['vehicleModel'].touched" color="danger" class="error-message show-error">
+        <div>Modelo del Vehículo es requerido.</div>
       </ion-text>
+    </div>
 
-    </ion-list>
-
-    <ion-button expand="full" type="submit" [disabled]="registerForm.invalid">Registrar</ion-button>
+    <!-- Botón de envío -->
+    <button class="submit-btn" type="submit" [disabled]="isSubmitting || registerForm.invalid">
+      Registrar
+    </button>
   </form>
 </ion-content>

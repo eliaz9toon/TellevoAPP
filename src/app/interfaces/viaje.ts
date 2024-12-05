@@ -1,9 +1,11 @@
 export interface Viaje {
-  inicio:string;
-  fin:string;
-  costo:string;
-  pasajeros:number;
-  imagen?: string; // Incluye 'imagen' si es necesario
+  id?: string; // Agregar este campo para almacenar el ID de Firestore
+  inicio: string;
+  fin: string;
+  costo: number;
+  pasajeros: number;
+  imagen: string;
+}
 
-  }
+
   

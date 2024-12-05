@@ -1,23 +1,39 @@
 .splash-container {
-    display: flex;
-    flex-direction: column;  // Alinea los elementos en columna (spinner arriba o abajo de la imagen)
-    justify-content: center;
-    align-items: center;
-    height: 100vh;  // Ocupa toda la altura de la pantalla
-    background-color: #ffffff;
+  display: flex;
+  flex-direction: column;  // Alinea los elementos en columna (spinner arriba o abajo de la imagen)
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  // Ocupa toda la altura de la pantalla
+  background-color: #ffffff;
+  overflow: hidden;  // Oculta cualquier contenido que se salga de los límites durante el movimiento
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  animation: moveImage 1.5s ease-in-out infinite;  // Animación más rápida y suave
+
+  /* Suaviza la animación para el ciclo de arriba a abajo */
+  transition: transform 0.8s ease-in-out;
+}
+
+@keyframes moveImage {
+  0% {
+    transform: translateY(0);  // Empieza en la posición original
   }
-  
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  50% {
+    transform: translateY(5px);  // Movimiento más sutil (5px hacia abajo)
   }
-  
-  ion-item {
-    --background: transparent;  // Hacer transparente el fondo del ion-item
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;  // Añadir margen entre el spinner y la imagen
+  100% {
+    transform: translateY(0);  // Regresa a la posición original
   }
-  
+}
+
+ion-item {
+  --background: transparent;  // Hacer transparente el fondo del ion-item
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;  // Añadir margen entre el spinner y la imagen
+}

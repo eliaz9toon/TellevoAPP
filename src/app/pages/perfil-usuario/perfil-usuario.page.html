@@ -1,59 +1,36 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
+    <!-- Ícono de hamburguesa dentro de ion-buttons -->
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Perfil</ion-title>
+    <ion-title>Perfil de Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- Tarjeta para el perfil del usuario -->
   <ion-card>
-    <!-- Encabezado con la imagen de fondo y foto de perfil -->
-    <div class="user-profile-header">
-      <img src="assets/icon/Elias2.png" class="background-image" alt="Imagen de fondo">
-      <div class="user-profile-image-container">
-        <img src="assets/icon/Elias2.png" class="user-profile-image" alt="Foto de perfil">
-      </div>
-    </div>
-
-    <!-- Información del Usuario -->
+    <ion-card-header>
+      <ion-card-title>Bienvenido, {{ userName || 'Usuario' }}</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
-      <div class="user-profile-info">
-        <h2>Alcaide Elias</h2>
-        <p><ion-icon name="globe-outline"></ion-icon> Habla Aleman Perfecto</p>
-        <p><ion-icon name="location-outline"></ion-icon> Berlin</p>
-        <div class="rating">
-          <ion-icon name="star"></ion-icon>
-          <span>5.01 ★</span>
-        </div>
-        <div class="trips">
-          <ion-icon name="car-outline"></ion-icon>
-          <span>Usuario Habitual</span>
-        </div>
-      </div>
+      <p>Email: {{ userExtraData?.email }}</p>
+      <p>Tipo: {{ userExtraData?.tipo }}</p>
     </ion-card-content>
+  </ion-card>
 
-    <!-- Reconocimientos -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Detalles del Perfil</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
-      <div class="user-achievements">
-        <h3>Reconocimientos</h3>
-        <div class="achievement-icons">
-          <div class="achievement-item">
-            <ion-icon name="thumbs-up-outline"></ion-icon>
-            <span>Puntual</span>
-          </div>
-          <div class="achievement-item">
-            <ion-icon name="happy-outline"></ion-icon>
-            <span>Miniso King</span>
-          </div>
-          <div class="achievement-item">
-            <ion-icon name="chatbubbles-outline"></ion-icon>
-            <span>Buen Conversador</span>
-          </div>
-        </div>
+      <p><ion-icon name="globe-outline"></ion-icon> {{ userLanguage || 'Español' }}</p>
+      <p><ion-icon name="location-outline"></ion-icon> {{ userTrips || 0 }} Viajes Realizados</p>
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+        <span>{{ userRating || 0 }} ★</span>
       </div>
+      <span>{{ userYears || 0 }} Años en la plataforma</span>
     </ion-card-content>
   </ion-card>
 </ion-content>

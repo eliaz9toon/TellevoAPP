@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="header-title">Detalles del Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="tripData" class="trip-details">
+  <ion-card class="trip-card">
+    <ion-card-header>
+      <ion-card-title class="card-title">Información del Viaje</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>📍 Inicio:</strong> {{ tripData.startAddress }}</p>
+      <p><strong>📍 Destino:</strong> {{ tripData.endAddress }}</p>
+      <p><strong>💵 Costo:</strong> {{ tripData.tripCost | currency:'CLP' }}</p>
+      <p><strong>🪑 Asientos Disponibles:</strong> {{ tripData.availableSeats }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Generar el QR del conductor -->
+  <div class="qr-container">
+    <qr-code [value]="qrValue" size="200"></qr-code>
+  </div>
+
+  <!-- Botón para terminar el viaje -->
+  <ion-button expand="block" color="danger" shape="round" class="end-trip-btn" (click)="endTrip()">
+    Terminar Viaje
+  </ion-button>
+</ion-content>

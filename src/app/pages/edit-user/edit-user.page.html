@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>edit-user</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="editUserForm" (ngSubmit)="actualizarUser()">
+    <ion-item>
+      <ion-label position="stacked">Email:</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Nombre:</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Pass:</ion-label>
+      <ion-input formControlName="pass" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tipo:</ion-label>
+      <ion-select formControlName="tipo" placeholder="Selecconar">
+        <ion-select-option value="admin" >Administrador</ion-select-option>
+        <ion-select-option value="usuario">Usuario</ion-select-option>
+        <ion-select-option value="invitado">Invitado</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-footer>
+      <ion-button type="submit">Modificar</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>

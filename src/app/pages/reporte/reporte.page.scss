@@ -1,47 +1,93 @@
 ion-content {
-    --background: #f4f4f4;
-    padding: 20px;
+  --background: #f4f4f4;
+  padding: 20px;
+}
+
+ion-title {
+  font-size: 1.2rem; /* Ajustamos el tamaño para pantallas pequeñas */
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap; /* Evita que el texto se divida */
+  overflow: hidden; /* Oculta el desbordamiento */
+  text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto se desborda */
+}
+
+ion-list {
+  margin-bottom: 20px;
+}
+
+ion-item {
+  --background: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ion-label {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+ion-input,
+ion-textarea {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Contenedor flex para centrar el botón */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Alinea el contenido verticalmente */
+  margin-top: 20px; /* Margen superior para separación */
+}
+
+.custom-button {
+  background: linear-gradient(45deg, #1e90ff, #4682b4); /* Degradado azul */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 16px 40px; /* Aumento el padding para que sea más largo */
+  border-radius: 10px; /* Borde redondeado */
+  border: none;
+  width: auto; /* El ancho se adapta al contenido */
+  max-width: 350px; /* Aumentamos el ancho máximo para hacerlo un poco más largo */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  font-size: 1.2rem; /* Aumento de tamaño de fuente para hacerlo más fácil de leer */
+  margin: 0; /* Eliminamos cualquier margen extra */
+  display: inline-block; /* Asegura que el botón se ajuste al contenido */
+
+  &:hover {
+    background: linear-gradient(45deg, #4682b4, #1e90ff); /* Cambia de dirección al pasar el mouse */
+    transform: scale(1.05); /* Efecto de escala al pasar el mouse */
   }
-  
-  ion-toolbar {
-    --background: #3880ff;
-    --color: white;
+
+  &:focus {
+    outline: none; /* Elimina el borde al hacer focus */
   }
-  
+}
+
+ion-button {
+  --border-radius: 10px;
+  font-size: 1.2rem;
+  padding: 12px;
+  margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividad: adaptabilidad para pantallas más pequeñas */
+@media (max-width: 600px) {
   ion-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
+    font-size: 1rem; /* Reducir tamaño en pantallas pequeñas */
+    padding: 0 10px; /* Añadir un poco de padding para evitar desbordamiento */
   }
-  
-  ion-list {
-    margin-bottom: 20px;
+
+  .custom-button {
+    padding: 14px 30px; /* Botón más grande para que no quede tan pequeño */
+    font-size: 1.2rem; /* Ajustar tamaño de texto en el botón */
+    max-width: 300px; /* Limitar el ancho máximo */
   }
-  
-  ion-item {
-    --background: white;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  ion-label {
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  ion-input,
-  ion-textarea {
-    font-size: 1rem;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  ion-button {
-    --border-radius: 10px;
-    font-size: 1.2rem;
-    padding: 12px;
-    margin-top: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
+}
